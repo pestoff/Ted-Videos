@@ -1,5 +1,6 @@
 package ru.pestoff.tedvideos.fragment
 
+import android.graphics.drawable.AnimatedVectorDrawable
 import android.os.Build
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +12,7 @@ import ru.pestoff.tedvideos.databinding.DetailsVideoFragmentBinding
 import ru.pestoff.tedvideos.model.Item
 import ru.pestoff.tedvideos.contract.DetailsViewContract
 import ru.pestoff.tedvideos.presenter.DetailsViewPresenter
+import ru.pestoff.tedvideos.util.StringUtil
 
 class DetailsVideoFragment: Fragment(), DetailsViewContract.View {
 
@@ -34,8 +36,9 @@ class DetailsVideoFragment: Fragment(), DetailsViewContract.View {
 
         presenter = DetailsViewPresenter(this)
 
-        item?.group?.contents?.get(0)?.url?.let { initMediaPlayer(it) }
-
+        item?.let {
+            init(it)
+        }
 
         return binding.root
     }
@@ -58,6 +61,26 @@ class DetailsVideoFragment: Fragment(), DetailsViewContract.View {
         super.onDestroyView()
         _binding = null
     }
+
+    private fun init(item: Item) {
+
+        binding.detailsTitle.text = StringUtil.getThemeFromTitle(item.title)
+        binding.detailsAuthors.text = StringUtil.getAuthorFromTitle(item.title)
+        binding.detailsDescription.text = item.description
+
+        binding.likeImage.setOnClickListener {
+            (binding.likeImage.drawable as AnimatedVectorDrawable).start()
+        }
+
+        binding.shareImage.setOnClickListener {
+            (binding.shareImage.drawable as AnimatedVectorDrawable).start()
+        }
+
+        initMediaPlayer(item.group.contents[0].url)
+    }
+
+
+
 
     private fun initMediaPlayer(url: String) {
         binding.videoView.player = presenter

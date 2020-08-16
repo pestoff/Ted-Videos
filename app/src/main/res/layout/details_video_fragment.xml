@@ -16,4 +16,60 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <TextView
+        android:id="@+id/details_authors"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        tools:text="Title"
+        app:layout_constraintStart_toStartOf="@+id/video_view"
+        app:layout_constraintTop_toBottomOf="@+id/video_view" />
+
+    <TextView
+        android:id="@+id/details_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        tools:text="Authors"
+        app:layout_constraintStart_toStartOf="@+id/details_authors"
+        app:layout_constraintTop_toBottomOf="@+id/details_authors" />
+
+    <TextView
+        android:id="@+id/details_information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="24dp"
+        android:text="@string/information"
+        app:layout_constraintStart_toStartOf="@+id/like_image"
+        app:layout_constraintTop_toBottomOf="@+id/like_image" />
+
+    <TextView
+        android:id="@+id/details_description"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/details_information"
+        app:layout_constraintTop_toBottomOf="@+id/details_information"
+        tools:text="Description" />
+
+    <ImageView
+        android:id="@+id/like_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginTop="24dp"
+        app:layout_constraintStart_toStartOf="@+id/details_title"
+        app:layout_constraintTop_toBottomOf="@+id/details_title"
+        app:srcCompat="@drawable/like_anim" />
+
+    <ImageView
+        android:id="@+id/share_image"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:layout_marginStart="16dp"
+        app:layout_constraintStart_toEndOf="@+id/like_image"
+        app:layout_constraintTop_toTopOf="@+id/like_image"
+        app:srcCompat="@drawable/share_anim" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
