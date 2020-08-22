@@ -15,5 +15,7 @@ class StringUtil {
 
             return strings.get(0).trim()
         }
+
+
     }
 }

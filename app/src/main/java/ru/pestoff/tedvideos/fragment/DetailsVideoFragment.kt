@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.core.os.bundleOf
 import androidx.fragment.app.Fragment
+import ru.pestoff.tedvideos.R
 import ru.pestoff.tedvideos.databinding.DetailsVideoFragmentBinding
 import ru.pestoff.tedvideos.model.Item
 import ru.pestoff.tedvideos.contract.DetailsViewContract
@@ -65,8 +66,17 @@ class DetailsVideoFragment: Fragment(), DetailsViewContract.View {
     private fun init(item: Item) {
 
         binding.detailsTitle.text = StringUtil.getThemeFromTitle(item.title)
-        binding.detailsAuthors.text = StringUtil.getAuthorFromTitle(item.title)
+        binding.detailsAuthors.text =
+            StringUtil.getAuthorFromTitle(item.title)
         binding.detailsDescription.text = item.description
+
+        if (isDarkMode()) {
+            binding.likeImage.setImageResource(R.drawable.like_anim_dark)
+            binding.shareImage.setImageResource(R.drawable.share_anim_dark)
+        } else {
+            binding.likeImage.setImageResource(R.drawable.like_anim_light)
+            binding.shareImage.setImageResource(R.drawable.share_anim_light)
+        }
 
         binding.likeImage.setOnClickListener {
             (binding.likeImage.drawable as AnimatedVectorDrawable).start()
@@ -80,7 +90,10 @@ class DetailsVideoFragment: Fragment(), DetailsViewContract.View {
     }
 
 
-
+    private fun isDarkMode() : Boolean {
+        val preferences = this.activity?.getSharedPreferences("AppSettingsPrefs", 0)
+        return preferences?.getBoolean("NightMode", false)!!
+    }
 
     private fun initMediaPlayer(url: String) {
         binding.videoView.player = presenter

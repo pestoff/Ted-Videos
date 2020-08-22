@@ -57,7 +57,6 @@ class MainActivity : AppCompatActivity(), ListVideoFragment.FragmentInteractionL
 
     override fun onCreateOptionsMenu(menu: Menu?): Boolean {
         super.onCreateOptionsMenu(menu)
-
         menuInflater.inflate(R.menu.toolbar_menu, menu)
 
         return true

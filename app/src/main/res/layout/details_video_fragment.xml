@@ -22,6 +22,7 @@
         android:layout_marginTop="8dp"
         android:textSize="24sp"
         android:textStyle="bold"
+        android:fontFamily="@font/montserrat_bold"
         android:textColor="@color/textMain"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.25"
@@ -36,6 +37,7 @@
         android:layout_marginTop="8dp"
         android:textSize="14sp"
         android:textColor="@color/textSecond"
+        android:fontFamily="@font/montserrat_regular"
         app:layout_constraintStart_toStartOf="@+id/details_title"
         app:layout_constraintTop_toBottomOf="@+id/details_title"
         tools:text="Authors" />
@@ -48,9 +50,11 @@
         android:text="@string/information"
         android:textSize="18sp"
         android:textStyle="bold"
+        android:fontFamily="@font/montserrat_bold"
         android:textColor="@color/textSecond"
         app:layout_constraintStart_toStartOf="@+id/like_image"
-        app:layout_constraintTop_toBottomOf="@+id/like_image" />
+        app:layout_constraintTop_toBottomOf="@+id/like_image"
+        />
 
     <TextView
         android:id="@+id/details_description"
@@ -59,8 +63,10 @@
         android:layout_marginTop="8dp"
         android:textColor="@color/textMain"
         android:textSize="16sp"
+        android:fontFamily="@font/montserrat_regular"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
+        android:lineSpacingExtra="5dp"
         app:layout_constraintStart_toStartOf="@+id/details_information"
         app:layout_constraintTop_toBottomOf="@+id/details_information"
         tools:text="Description" />
@@ -72,7 +78,7 @@
         android:layout_marginTop="32dp"
         app:layout_constraintStart_toStartOf="@+id/details_authors"
         app:layout_constraintTop_toBottomOf="@+id/details_authors"
-        app:srcCompat="@drawable/like_anim" />
+        tools:srcCompat="@drawable/like_anim_light" />
 
     <ImageView
         android:id="@+id/share_image"
@@ -81,6 +87,6 @@
         android:layout_marginStart="16dp"
         app:layout_constraintStart_toEndOf="@+id/like_image"
         app:layout_constraintTop_toTopOf="@+id/like_image"
-        app:srcCompat="@drawable/share_anim" />
+        tools:srcCompat="@drawable/share_anim_light" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

@@ -10,11 +10,35 @@
 
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/main_toolbar"
-        style="@style/Toolbar"/>
+        style="@style/Toolbar">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <ImageView
+                android:id="@+id/imageView2"
+                android:layout_width="65dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginStart="0dp"
+                android:layout_marginTop="13dp"
+                android:layout_marginBottom="13dp"
+                app:srcCompat="@drawable/ted_header" />
+
+
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
+
+
+
 
     <androidx.fragment.app.FragmentContainerView
         android:id="@+id/video_list_fragment_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent" />
+
+
 
 </LinearLayout>
