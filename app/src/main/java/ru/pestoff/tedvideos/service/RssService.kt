@@ -11,10 +11,7 @@ import ru.pestoff.tedvideos.model.RssFeed
 interface RssService {
 
     @GET("themes/rss/id")
-    fun getCats(): Call<RssFeed>
-
-    @GET("themes/rss/id")
-    fun rGetCats(): Observable<RssFeed>
+    fun getCats(): Observable<RssFeed>
 
     companion object {
         fun create(): RssService {

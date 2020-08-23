@@ -10,5 +10,6 @@ interface ListVideoContract {
 
     interface View {
         fun getAdapter(): VideoAdapter
+        fun doOnError()
     }
 }

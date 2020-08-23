@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.core.view.isVisible
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import ru.pestoff.tedvideos.adapter.VideoAdapter
@@ -39,6 +40,15 @@ class ListVideoFragment : Fragment(), ListVideoContract.View {
 
         initRecyclerView()
 
+        binding.reloadButton.setOnClickListener {
+
+            binding.recyclerView.isVisible = true
+            binding.errorMessage.isVisible = false
+            binding.reloadButton.isVisible = false
+
+            presenter.loadDataFromRss()
+        }
+
         return binding.root
     }
 
@@ -71,4 +81,10 @@ class ListVideoFragment : Fragment(), ListVideoContract.View {
     }
 
     override fun getAdapter() = adapter
+
+    override fun doOnError() {
+        binding.recyclerView.isVisible = false
+        binding.errorMessage.isVisible = true
+        binding.reloadButton.isVisible = true
+    }
 }

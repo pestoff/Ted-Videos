@@ -1,5 +1,6 @@
 package ru.pestoff.tedvideos.presenter
 
+import android.annotation.SuppressLint
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.schedulers.Schedulers
 import ru.pestoff.tedvideos.contract.ListVideoContract
@@ -13,12 +14,15 @@ class ListVideoPresenter(listView: ListVideoContract.View) : ListVideoContract.P
 
     val repository = Repository(RssService.create())
 
+    @SuppressLint("CheckResult")
     override fun loadDataFromRss() {
         repository.getRssFeed()
             ?.subscribeOn(Schedulers.io())
             ?.observeOn(AndroidSchedulers.mainThread())
-            ?.subscribe() {
+            ?.subscribe({
                 view.get()?.getAdapter()?.videos = it
-            }
+            }, {
+                view.get()?.doOnError()
+            })
     }
 }
