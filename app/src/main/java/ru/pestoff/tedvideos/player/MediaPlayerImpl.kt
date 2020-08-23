@@ -51,5 +51,4 @@ class MediaPlayerImpl : MediaPlayer {
         exoPlayer.stop()
         exoPlayer.release()
     }
-
 }

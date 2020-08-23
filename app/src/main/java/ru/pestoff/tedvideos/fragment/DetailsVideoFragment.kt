@@ -15,7 +15,7 @@ import ru.pestoff.tedvideos.contract.DetailsViewContract
 import ru.pestoff.tedvideos.presenter.DetailsViewPresenter
 import ru.pestoff.tedvideos.util.StringUtil
 
-class DetailsVideoFragment: Fragment(), DetailsViewContract.View {
+class DetailsVideoFragment : Fragment(), DetailsViewContract.View {
 
     private var _binding: DetailsVideoFragmentBinding? = null
     private val binding get() = _binding!!
@@ -89,8 +89,7 @@ class DetailsVideoFragment: Fragment(), DetailsViewContract.View {
         initMediaPlayer(item.group.contents[0].url)
     }
 
-
-    private fun isDarkMode() : Boolean {
+    private fun isDarkMode(): Boolean {
         val preferences = this.activity?.getSharedPreferences("AppSettingsPrefs", 0)
         return preferences?.getBoolean("NightMode", false)!!
     }
@@ -105,7 +104,7 @@ class DetailsVideoFragment: Fragment(), DetailsViewContract.View {
 
     companion object {
 
-        private val ITEM_KEY = "Item"
+        private const val ITEM_KEY = "Item"
 
         fun createInstance(item: Item): DetailsVideoFragment {
             return DetailsVideoFragment().apply {

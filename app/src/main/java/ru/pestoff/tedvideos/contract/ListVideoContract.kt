@@ -9,6 +9,6 @@ interface ListVideoContract {
     }
 
     interface View {
-        fun getAdapter() : VideoAdapter
+        fun getAdapter(): VideoAdapter
     }
 }

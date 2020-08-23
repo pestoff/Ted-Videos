@@ -2,24 +2,15 @@ package ru.pestoff.tedvideos.activity
 
 import android.content.SharedPreferences
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
-import android.view.MenuInflater
 import android.view.MenuItem
-import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.app.AppCompatDelegate
-import java.util.concurrent.ScheduledThreadPoolExecutor
-import retrofit2.Call
-import retrofit2.Callback
-import retrofit2.Response
 import ru.pestoff.tedvideos.R
 import ru.pestoff.tedvideos.databinding.ActivityMainBinding
 import ru.pestoff.tedvideos.fragment.DetailsVideoFragment
 import ru.pestoff.tedvideos.fragment.ListVideoFragment
 import ru.pestoff.tedvideos.model.Item
-import ru.pestoff.tedvideos.model.RssFeed
-import ru.pestoff.tedvideos.service.RssService
 
 class MainActivity : AppCompatActivity(), ListVideoFragment.FragmentInteractionListener {
 
@@ -63,7 +54,7 @@ class MainActivity : AppCompatActivity(), ListVideoFragment.FragmentInteractionL
     }
 
     override fun onOptionsItemSelected(item: MenuItem): Boolean {
-        when(item.itemId) {
+        when (item.itemId) {
             R.id.action_dark_mode -> {
                 if (isNightModeOn) {
                     AppCompatDelegate.setDefaultNightMode(AppCompatDelegate.MODE_NIGHT_NO)

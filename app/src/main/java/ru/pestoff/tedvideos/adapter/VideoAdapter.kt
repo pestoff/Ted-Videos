@@ -7,14 +7,12 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.MultiTransformation
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
-import com.bumptech.glide.request.RequestOptions
 import ru.pestoff.tedvideos.databinding.ItemViewBinding
 import ru.pestoff.tedvideos.model.Item
 import ru.pestoff.tedvideos.util.StringUtil
 
-class VideoAdapter(private val onClickListener: OnClickListener)
-    : RecyclerView.Adapter<VideoAdapter.VideoHolder>() {
-
+class VideoAdapter(private val onClickListener: OnClickListener) :
+    RecyclerView.Adapter<VideoAdapter.VideoHolder>() {
     interface OnClickListener {
         fun onClick(item: Item)
     }
@@ -37,8 +35,8 @@ class VideoAdapter(private val onClickListener: OnClickListener)
         holder.bind(videos[position])
     }
 
-    inner class VideoHolder(var itemViewBinding: ItemViewBinding)
-        : RecyclerView.ViewHolder(itemViewBinding.root) {
+    inner class VideoHolder(var itemViewBinding: ItemViewBinding) :
+        RecyclerView.ViewHolder(itemViewBinding.root) {
 
         fun bind(item: Item) {
 
@@ -56,10 +54,7 @@ class VideoAdapter(private val onClickListener: OnClickListener)
             itemViewBinding.authorText.text = StringUtil.getAuthorFromTitle(item.title)
             itemViewBinding.themeText.text = StringUtil.getThemeFromTitle(item.title)
 
-            itemViewBinding.durationText.text = item.duration
-
+            itemViewBinding.durationText.text = StringUtil.timeConvert(item.duration)
         }
     }
-
-
 }

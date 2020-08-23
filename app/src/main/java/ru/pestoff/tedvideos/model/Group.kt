@@ -10,6 +10,6 @@ import org.simpleframework.xml.Root
 data class Group(
     @field:ElementList(inline = true, name = "content")
     var contents: MutableList<Content>
-) : Parcelable{
+) : Parcelable {
     constructor() : this (mutableListOf<Content>())
 }

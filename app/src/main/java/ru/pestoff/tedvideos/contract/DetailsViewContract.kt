@@ -6,7 +6,7 @@ interface DetailsViewContract {
 
     interface Presenter {
 
-        fun getPlayer() : MediaPlayer
+        fun getPlayer(): MediaPlayer
 
         fun play(url: String)
 

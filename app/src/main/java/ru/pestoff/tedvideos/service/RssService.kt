@@ -8,7 +8,6 @@ import retrofit2.converter.simplexml.SimpleXmlConverterFactory
 import retrofit2.http.GET
 import ru.pestoff.tedvideos.model.RssFeed
 
-
 interface RssService {
 
     @GET("themes/rss/id")
